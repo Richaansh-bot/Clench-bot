@@ -1,0 +1,37 @@
+
+# Welcome to the project!
+
+This codebase is for a robot that I made for cozmo clench an competition organised by IIT Bombay Techfest and our team had secured 2nd position in northern region in it and been in top 10 in International. The robot has four channels of input: two for the wheels, one for the gripper, and one for the base tilt.
+
+The code is written in C++ and was developed for use with an Arduino microcontroller.
+
+## Hardware setup
+
+The following hardware connections are defined at the beginning of the code:
+
+-   Wheels channel input pins: `C1` and `C2`
+-   Gripper channel input pins: `C3` and `C4`
+-   Driver enable pins: `d1l`, `d1r`, `d2l`, `d2r`
+-   Gripper enable pins: `c1` and `c2`
+-   Base tilt PWM pins: `btsr` and `btsl`
+-   Base tilt enable pins: `enl` and `enr`
+
+In the `setup()` function, these pins are configured as inputs or outputs and the serial communication is initialized.
+
+## Motor control
+
+In the `loop()` function, the input values from the four channels are read and mapped to a range of -255 to 255. These values are then used to control the speed of the motors and the tilt of the base.
+
+The first two channels control the speed of the two driver motors, which are connected to the `d1l`, `d1r`, `d2l`, and `d2r` pins. The third channel controls the speed of the gripper motor, which is connected to the `c2` pin. The fourth channel controls the tilt of the base, which is connected to the `btsr` and `btsl` pins.
+
+The code also includes logic for controlling the direction of the wheels and gripper. If the input value for the wheels is 0, the wheels stop moving. If the input value is greater than 1530, the wheels move forward. If the input value is less than 1470, the wheels move backward. The same logic is applied to the gripper. If the input value for the gripper is 0, the gripper stops moving. If the input value is greater than 1530, the gripper closes. If the input value is less than 1470, the gripper opens.
+
+Finally, the code includes logic for controlling the tilt of the base. If the input value for the base tilt is 0, the base remains stationary. If the input value is greater than 0, the base tilts to the right. If the input value is less than 0, the base tilts to the left.
+
+## Getting started
+
+To use this code, you will need to connect the appropriate hardware to your Arduino microcontroller and upload the code using the Arduino Integrated Development Environment (IDE). You will also need to provide the necessary PWM signals to control the robot.
+
+## Questions or feedback
+
+If you have any questions or need further assistance, please don't hesitate to reach out. We are here to help!
